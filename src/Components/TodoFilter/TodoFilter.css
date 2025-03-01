@@ -1,0 +1,28 @@
+.filter-selector-container {
+    display: flex;
+    justify-content: center;
+}
+
+
+.stats-container {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    position: absolute;
+    bottom: 20%;
+}
+
+p {
+    font-size: 1.175rem;
+    font-weight: 600;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.p-complete {
+    color: green;
+}
+
+.p-incomplete {
+    color: red;
+}

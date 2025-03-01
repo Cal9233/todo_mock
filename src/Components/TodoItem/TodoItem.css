@@ -1,0 +1,61 @@
+.todo-container {
+    background-color: whitesmoke;
+    min-height: 60px;
+    width: 400px;
+    margin: 10px 0;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    border-radius: 15px;
+    border: 2px solid black;
+    gap: 10px;
+}
+
+.todo-container.Complete {
+    border: 2px solid green;
+    background-color: rgb(186, 255, 184);
+}
+
+.todo-header {
+    display: inline-flex;
+    justify-content: space-between;
+}
+
+.todo-title {
+    font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 8px;
+    text-align: center;
+}
+
+.todo-status {
+    margin: 0;
+    font-size: 16px;
+    color: #272727;
+    text-align: center;
+    cursor: pointer;
+}
+
+.todo-status.Complete {
+    text-decoration: line-through;
+    cursor: pointer;
+}   
+
+.btn-end-icon {
+    display: inline-flex;
+    margin: 0;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 1000px){
+    .todo-container {
+        width: 65%;
+        gap: 5px;
+    }
+
+    .todo-title {
+        font-size: 0.9rem;
+    }
+}

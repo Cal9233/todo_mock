@@ -1,0 +1,15 @@
+nav {
+    z-index: 1000;
+    background-color: rgb(236, 195, 140);
+    position: absolute;
+    top: 0;
+    width: 100vw;
+    text-align: center;
+    box-shadow: 3px 3px rgb(67, 55, 39);
+}
+
+.login-btn{
+    position: absolute;
+    right: 2%;
+    top: 30%;
+}

@@ -1,8 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { todoSlicer } from "./slicers";
+import logger from 'redux-logger';
+import todoSlicer from "./slicers";
 
-export const store = configureStore({
+const store = configureStore({
     reducer: {
         todo: todoSlicer,
-    }
-})
+    },
+    middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger),
+});
+
+export default store;

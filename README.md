@@ -1,70 +1,243 @@
-# Getting Started with Create React App
+React Todo Application Testing Skills Assessment
+Overview
+This assessment evaluates your proficiency in testing React frontend applications. You'll be creating a comprehensive test suite for a Todo application that demonstrates your understanding of testing principles, best practices, and implementation skills.
+Project Description
+You will be testing a React Todo application that includes:
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Todo creation
+Todo listing with filtering (All, Active, Completed)
+Todo editing
+Todo completion toggling
+Todo deletion
+Batch actions (mark all complete, clear completed)
+Local storage persistence
+Responsive design for mobile and desktop
 
-## Available Scripts
+Testing Requirements
+Unit Tests (Jest + React Testing Library)
 
-In the project directory, you can run:
+Components
 
-### `npm start`
+Test TodoItem rendering with various states (complete/incomplete)
+Test TodoList rendering with different todo arrays
+Test FilterControls rendering and state
+Test conditional rendering (empty state, loading state)
+Test form components for adding/editing todos
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Custom Hooks
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Test useTodos hook for CRUD operations
+Test useFilter hook for filtering logic
+Test useLocalStorage hook for persistence
 
-### `npm test`
+Redux/State Management (if applicable)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Test reducers for all todo actions
+Test action creators
+Test selectors for filtered todos
+Test async actions
 
-### `npm run build`
+Utility Functions
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Test todo filtering functions
+Test unique ID generation
+Test date formatting
+Test validation functions
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Integration Tests (React Testing Library)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Component Interactions
 
-### `npm run eject`
+Test adding a new todo and seeing it in the list
+Test toggling todo completion status
+Test editing a todo
+Test deleting a todo
+Test filtering todos by status
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+User Workflows
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Test complete workflow: add, edit, complete, filter, delete
+Test bulk operations (mark all complete, clear completed)
+Test persistence between page reloads
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+End-to-End Tests (Cypress)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Critical User Journeys
 
-## Learn More
+Add multiple todos → mark some complete → filter by active/completed → clear completed
+Create a todo → edit it → mark complete → delete it
+Test that todos persist after page refresh
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Error Handling
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Test form validation (empty todos, max length)
+Test handling duplicate todos (if implemented)
+Test offline functionality (if implemented)
 
-### Code Splitting
+Accessibility Tests
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Test keyboard navigation (tab through todos, use keyboard to complete/delete)
+Test screen reader compatibility
+Test ARIA attributes
+Test color contrast for todo states
 
-### Analyzing the Bundle Size
+What to Test vs. What Not to Test
+Do Test
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+✅ Component behavior based on props and state
+✅ User interactions (clicks, typing, form submission)
+✅ State changes after interactions
+✅ Filtering and sorting logic
+✅ CRUD operations on todos
+✅ Persistence functionality
+✅ Accessibility features
+✅ Error states and validation
 
-### Making a Progressive Web App
+Don't Test
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+❌ Implementation details (private functions, component internals)
+❌ Third-party libraries (React, Redux, etc.)
+❌ CSS styling (unless critical for functionality)
+❌ Browser API functionality (localStorage should be mocked)
+❌ Static content that doesn't change
+❌ React's internal rendering logic
 
-### Advanced Configuration
+Testing Best Practices
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Focus on User Behavior
 
-### Deployment
+Test what the user sees and does
+Use queries that reflect how users interact with the app
+Prioritize testing user-facing functionality
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Write Maintainable Tests
 
-### `npm run build` fails to minify
+Use data-testid for complex selections
+Prefer role, text, and label for accessibility
+Don't tie tests to implementation details
+Use testing library's recommended queries (getByRole over getByTestId when possible)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Follow Testing Hierarchy
+
+More unit tests for core functionality
+Focused integration tests for workflows
+E2E tests for critical user journeys
+
+Handle Async Properly
+
+Wait for state updates properly
+Use async/await and testing-library's waitFor
+Mock timers for animations or delays
+
+Use Mocks Strategically
+
+Mock localStorage for persistence tests
+Mock API calls if using a backend
+Use Jest's mock functions for callbacks
+
+Test Organization
+
+Group tests by feature or component
+Use descriptive test names
+Follow the AAA pattern (Arrange, Act, Assert)
+
+Deliverables
+
+Test Suite
+
+Complete coverage of all Todo app features
+Well-organized test files
+Appropriate mix of unit, integration, and E2E tests
+
+Documentation
+
+Testing strategy document explaining your approach
+Setup instructions for running tests
+Test coverage report
+
+CI/CD Integration
+
+GitHub Actions or similar CI pipeline
+Automated test runs on PRs
+
+Evaluation Criteria
+Your submission will be evaluated on:
+
+Comprehensiveness: How thoroughly you've tested the Todo application
+Code Quality: Well-structured, readable, and maintainable tests
+Strategy: Your choices about what and how to test
+Best Practices: Following established testing conventions
+Documentation: Clear explanation of your approach
+Error Handling: Testing for failure cases
+Accessibility: Ensuring the app works for all users
+
+Project Requirements
+
+1. Custom Hooks
+
+Create a useTodos hook that:
+
+Manages the todo state (loading, adding, toggling, deleting)
+Handles persistence (localStorage or API)
+Returns the todos array and relevant functions
+
+Create a useFilter hook to handle todo filtering logic
+
+2. Higher-Order Components
+
+Create a withTodoTracking HOC that:
+
+Wraps todo components to track user actions
+Adds analytics/logging capabilities
+Passes a tracking function to the wrapped component
+
+3. Render Props
+
+Implement a TodoFilter component using render props
+Allow the parent component to control the rendering while the filter component provides the data and callbacks
+
+4. Context API
+
+Create a TodoContext to manage global state
+Implement a reducer for predictable state updates
+Create a context provider component
+Create a custom hook to access the context
+
+5. Component Composition
+
+Break down your app into small, reusable components
+Use composition to build more complex components
+Create a clear component hierarchy
+
+Implementation Tasks
+
+Set up project structure
+
+Create separate folders for components, hooks, context, and HOCs
+
+Implement the core functionality
+
+Todo creation, completion toggling, and deletion
+Todo filtering (all, active, completed)
+Persistence with localStorage
+
+Add the advanced patterns one by one
+
+Start with the context for global state
+Extract logic into custom hooks
+Implement component composition
+Add the HOC for tracking
+Implement the render props pattern for filtering
+
+Style your application
+
+Add basic CSS for a clean user interface
+
+Suggested Component Structure
+
+App.js - Main component using the Context Provider
+TodoForm.js - For adding new todos
+TodoList.js - Container for todo items
+TodoItem.js - Individual todo with toggle and delete functionality
+TodoFilter.js - Filtering using render props
+TodoStats.js - Display counts of todos
